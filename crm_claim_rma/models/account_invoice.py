@@ -78,7 +78,7 @@ class AccountInvoice(models.Model):
     @api.model
     def _prepare_refund(self, invoice, date=None, period_id=None,
                         description=None, journal_id=None):
-        if not invoice:
+        if invoice==False:
             raise except_orm(_('No Invoice Defined!'),
                             _("You must first select an invoice for this RMA!"))
         result = super(AccountInvoice, self)._prepare_refund(
